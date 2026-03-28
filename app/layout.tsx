@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Outfit, Syne } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
+import { siteMetadata } from "@/constants/content";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const syne = Syne({
-  variable: "--font-syne",
+const fraunces = Fraunces({
+  variable: "--font-display",
   subsets: ["latin"],
 });
 
@@ -18,9 +19,8 @@ const siteUrl =
 
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
-  title: "Cursor Workshop Quito",
-  description:
-    "Taller práctico en Quito: aprende Cursor, crea y publica tu landing page. Presentado por Cursor Community.",
+  title: siteMetadata.title,
+  description: siteMetadata.description,
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${outfit.variable} ${syne.variable} h-full antialiased`}
+      className={`${inter.variable} ${fraunces.variable} h-full antialiased`}
     >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
